@@ -1,0 +1,754 @@
+/* =========================================
+   1. GLOBAL & RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navbar */
+}
+
+
+/* =========================================
+   2. KOMPONEN UMUM (REUSABLE)
+========================================= */
+/* Pengaturan section umum */
+section {
+    min-height: 100vh;
+    padding: 80px 20px;
+}
+
+/* Pengaturan agar konten tiap section berada di tengah */
+.section-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Desain untuk judul besar di tiap section */
+.section-title {
+    font-size: 3.5rem;
+    color: #1a252f;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 4px solid #3498db; /* Garis biru di bawah teks */
+    padding-bottom: 15px;
+}
+
+/* Kelas tambahan untuk selang-seling warna background section */
+.bg-gray {
+    background-color: #ecf0f1;
+}
+
+
+/* =========================================
+   3. NAVIGASI (NAVBAR)
+========================================= */
+nav {
+    background-color: #1a252f;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 50px;
+    /* TAMBAHAN: Efek bayangan agar navbar melayang */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    
+}
+
+nav .logoporto {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    align-items: center;
+    height: 50px;
+}
+
+nav ul li {
+    margin: 0 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+/* TAMBAHAN: Gaya untuk tombol ganti tema di ujung kanan navbar */
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efek saat tombol tema disentuh mouse (berubah biru dan berputar) */
+.nav-btn:hover {
+    color: #3498db;
+    transform: rotate(90deg); 
+}
+
+
+/* =========================================
+   4. SECTION: HOME
+========================================= */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 60px;
+    background-color: #ffffff;
+}
+
+.profile-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #1a252f;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#home h1 {
+    font-size: 3rem;
+    color: #1a252f;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    flex-direction: row;
+}
+
+#home h2 {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+/* -- Sosial Media di Home -- */
+.home-socials {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-socials a {
+    color: #1a252f;
+    font-size: 28px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.home-socials a:hover {
+    color: #1a252f;
+    transform: translateY(-5px); 
+}
+
+.home-socials .cv-btn {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #1a252f;
+    padding: 8px 20px;
+    border-radius: 25px;
+}
+
+.home-socials .cv-btn:hover {
+    background-color: #1a252f;
+    color: #ffffff;
+}
+
+/* =========================================
+   5. SECTION: ABOUT
+========================================= */
+.about-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 100px; 
+    max-width: 1200px; 
+    margin-top: 40px; 
+}
+
+.about-img img {
+    width: 350px;
+    height: auto;
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    transition: transform 0.3s ease;
+}
+
+.about-img img:hover {
+    transform: scale(1.03); 
+}
+
+.about-text {
+    flex: 1; 
+}
+
+.about-text p {
+    font-size: 1.15rem;
+    line-height: 1.8; 
+    color: #444;
+    text-align: justify; 
+}
+
+/* =========================================
+   6. SECTION: ACHIEVEMENT
+========================================= */
+.achievement-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    gap: 60px; 
+    max-width: 1200px; 
+    width: 100%;
+    margin-top: 50px;
+}
+
+.achievement-text {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    font-size: 1.2rem;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    margin-bottom: 40px; 
+}
+
+.timeline-box {
+    border-left: 4px solid #3498db; 
+    padding-left: 20px; 
+}
+
+.timeline-content {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+}
+
+.timeline-content h3 {
+    font-size: 1.1rem;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.timeline-content .text-blue {
+    color: #3498db;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.achievement-images {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    position: sticky; 
+    top: 100px; 
+}
+
+.achievement-images img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 40px; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.6s ease; 
+}
+
+.achievement-images img:hover {
+    transform: scale(1.08); 
+}
+
+.timeline-header {
+    display: flex !important; 
+    justify-content: space-between !important; 
+    align-items: center; 
+    margin-bottom: 5px;
+    gap: 15px; 
+}
+
+.timeline-content h3 {
+    margin-bottom: 0 !important; 
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    background-color: #f1f2f6; 
+    padding: 5px 12px;
+    border-radius: 20px; 
+    font-weight: 600;
+    white-space: nowrap; 
+}
+
+.badge-active {
+    background-color: #e8f4fd; 
+    color: #43b63d; 
+    border: 1px solid #3498db;
+}
+
+/* =========================================
+   7. SECTION: SKILL
+========================================= */
+.skill-grid {
+    display: grid;
+    /* UBAHAN 1: Mengecilkan lebar minimum kotak dari 300px menjadi 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; 
+    /* UBAHAN 2: Memperlebar wadah dari 1100px menjadi 1200px agar muat 4 kotak */
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.skill-card {
+    background-color: #1a252f; 
+    color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Tambahkan border transparan di awal agar tidak goyang saat di-hover */
+    border: 1px solid transparent; 
+}
+
+/* TAMBAHAN: Efek kotak terangkat dan bercahaya (Neon Glow) saat disentuh mouse */
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(43, 112, 158, 0.769), 0 0 20px rgba(52, 152, 219, 0.2); 
+    border: 1px solid rgba(52, 152, 219, 0.5); /* Garis tepi biru tipis */
+}
+
+.skill-card i {
+    font-size: 3.5rem; 
+    color: #3498db; 
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.skill-card p {
+    font-size: 0.95rem;
+    color: #bdc3c7; 
+    line-height: 1.5;
+}
+/* =========================================
+   9. SECTION: PROJECT GALLERY
+========================================= */
+.project-grid {
+    display: grid;
+    /* UBAHAN 1: Memperbesar batas minimal menjadi 320px agar hanya muat 3 kolom */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px; /* Jarak antar foto sedikit diperlebar agar lega */
+    max-width: 1100px; /* Lebar wadah disesuaikan agar proporsional */
+    width: 100%;
+    margin-top: 50px;
+}
+
+.project-card {
+    width: 100%;
+    /* UBAHAN KUNCI: Menghapus height dan menggantinya dengan rasio monitor 16:9 */
+    aspect-ratio: 16 / 9; 
+    border-radius: 15px;
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: #1a252f; 
+    cursor: pointer;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover memastikan SS-mu memenuhi layar tanpa gepeng */
+    object-fit: cover; 
+    transition: transform 0.5s ease; 
+}
+
+/* Efek saat mouse menyentuh foto */
+.project-card:hover img {
+    transform: scale(1.15); 
+}
+/* =========================================
+   8. FOOTER MINIMALIS
+========================================= */
+footer {
+    width: 100%;
+    /* Aku gunakan warna biru yang sedikit lebih gelap dari navbar agar terkesan dalam dan elegan */
+    background-color: #1a252f; 
+    color: #ffffff;
+    padding: 60px 20px 40px; 
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0cm;
+
+}
+
+.footer-minimalist {
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Jarak yang seimbang antar elemen */
+}
+
+/* Desain Nama Besar di Tengah */
+.footer-name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+/* Desain Deretan Ikon Sosial Media */
+.footer-socials-center {
+    display: flex;
+    gap: 30px; /* Jarak antar ikon agak dilebarkan agar tidak berdesakan */
+}
+
+.footer-socials-center a {
+    color: #ffffff;
+    font-size: 1.6rem; /* Ukuran ikon dibuat cukup besar */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efek saat ikon disentuh mouse */
+.footer-socials-center a:hover {
+    color: #3498db; /* Berubah jadi biru muda */
+    transform: translateY(-4px); /* Efek melayang sedikit ke atas */
+}
+
+/* Desain Teks Copyright di Bawah */
+.footer-copyright {
+    font-size: 0.95rem;
+    color: #bdc3c7;
+    font-weight: 600;
+    margin-top: 10px;
+}
+/* =========================================
+   10. SECTION: QUOTE (PENUTUP)
+========================================= */
+.quote-section {
+    min-height: 50vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: transparent; /* <-- UBAH BAGIAN INI JADI TRANSPARENT */
+    padding: 60px 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.quote-section h1 {
+    font-size: 4.5rem; 
+    font-weight: 800;
+    color: #1a252f; 
+    letter-spacing: 2px;
+    font-style: italic; 
+    text-shadow: 2px 10px 20px rgba(0,0,0,0.1); 
+}
+
+.quote-section .text-blue {
+    color: #3498db;
+}
+
+@media (max-width: 768px) {
+    .quote-section h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #3498db; /* Warna biru muda yang sama dengan efek hover */
+    /* Opsional: Tambahkan garis bawah tebal atau font lebih tebal kalau mau lebih mencolok */
+    font-weight: 700;
+}
+
+
+
+/* =========================================
+   11. TAMPILAN HP (MOBILE RESPONSIVE)
+========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. ANTI BOCOR: Kunci layar biar nggak bisa digeser-geser ke samping */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 2. NAVBAR: Tetap menyamping seperti di PC */
+    nav {
+        flex-direction: row; /* Paksa agar tetap menyamping */
+        padding: 15px 15px; /* Kurangi jarak aman kiri-kanan */
+        justify-content: space-between;
+    }
+    
+    nav .logoporto {
+        font-size: 16px; /* Perkecil nama "My Portfolio" agar memberi ruang */
+    }
+
+    nav ul {
+        margin-top: 0;
+        flex-wrap: nowrap; /* KUNCI: Cegah menu turun ke baris bawah */
+        gap: 8px; /* Rapatkan jarak antar menu */
+        height: auto;
+    }
+    
+    nav ul li {
+        margin: 0; 
+    }
+    
+    nav ul li a {
+        font-size: 11px; /* Perkecil teks menu agar muat 5 sekaligus di layar HP */
+        font-weight: 600;
+    }
+    /* 3. SECTION UMUM: Sesuaikan ruang kosong */
+    section {
+        padding: 120px 20px 40px; /* Tambah jarak atas agar tidak tertutup navbar bertumpuk */
+    }
+    .section-title {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* 4. HOME: Kecilkan foto profil dan teks raksasa */
+    .profile-img {
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+    }
+    #home h1 {
+        font-size: 1rem;
+    }
+    #home h2 {
+        font-size: 0.9rem;
+    }
+
+    /* 5. ABOUT: Rapikan tumpukan gambar dan teks */
+    .about-container {
+        flex-direction: column; /* Tetap ditumpuk ke bawah */
+        gap: 20px; /* Jarak gambar dan teks sedikit dirapatkan agar menyatu */
+        align-items: center; /* Pastikan keseluruhan area berada di tengah */
+    }
+    
+    .about-img {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Mengunci khusus gambar agar tetap di tengah */
+    }
+    
+    .about-img img {
+        width: 65%; /* Perkecil sedikit fotonya agar tidak memenuhi layar HP */
+        max-width: 250px;
+    }
+    
+    .about-text {
+        width: 100%;
+        padding: 0 10px; /* Beri jarak aman di kiri-kanan teks agar tidak menempel layar */
+    }
+    
+    .about-text p {
+        font-size: 0.6rem; /* Ukuran font pas untuk HP */
+        line-height: 1.7; /* Jarak antar baris teks agar nyaman dibaca */
+        text-align: justify; /* KUNCI UTAMA: Teks rata kiri-kanan agar rapi seperti buku! */
+    }
+
+/* 6. ACHIEVEMENT: Paksa menyamping persis seperti PC */
+    .achievement-wrapper {
+        flex-direction: row; /* Paksa tetap kiri dan kanan */
+        gap: 10px; /* Jarak dipersempit maksimal agar muat di layar HP */
+        align-items: stretch;
+    }
+    
+    .achievement-text {
+        flex: 4; /* Beri porsi ruang sedikit lebih banyak untuk teks */
+    }
+    
+    .achievement-images {
+        flex: 2; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* KUNCI 2: Memaksa foto menyebar rata dari ujung atas sampai ujung bawah! */
+         /* HAPUS kodingan position: sticky; dan top: 80px; di sini agar dia ikut scroll natural bersama teks */
+    }
+    
+    .achievement-images img {
+        height: 120px; /* Bisa kamu besarkan/kecilkan agar pas di matamu */
+        width: 100%;
+        object-fit: cover; /* Biar foto tidak gepeng walau ukurannya dipaksa */
+        border-radius: 10px;
+    }
+
+    /* Memperkecil semua ukuran font sesuai permintaan (0.4rem) */
+    .category-title {
+        font-size: 0.6rem; 
+        margin-bottom: 10px;
+    }
+    
+    .timeline-container {
+        gap: 10px; /* Jarak antar kotak timeline dirapatkan */
+    }
+    
+    .timeline-content {
+        padding: 10px; /* Padding dalam kotak putih dikecilkan */
+        border-radius: 8px;
+    }
+    
+    .timeline-header {
+        flex-direction: row; /* Tanggal dan Judul tetap menyamping */
+        gap: 5px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 0.5rem; /* Judul timeline */
+    }
+    
+    .timeline-content .text-blue {
+        font-size: 0.45rem;
+        margin-bottom: 5px;
+    }
+    
+    .timeline-content p {
+        font-size: 0.4rem; /* SESUAI PERMINTAAN: Teks paragraf sangat kecil */
+        line-height: 1.3;
+    }
+    
+    /* Mengecilkan kotak tanggal / label "Sedang Berlangsung" */
+    .timeline-date {
+        font-size: 0.3rem; /* Teks dibuat lebih kecil lagi */
+        padding: 2px 4px; /* Bantalan kiri-kanan atas-bawah ditipiskan biar nggak gemuk */
+        border-radius: 8px; /* Lengkungan ujungnya disesuaikan biar proporsional */
+        font-weight: 400;
+        letter-spacing: 0.4px; /* Kasih sedikit jarak antar huruf biar tetap bisa dibaca walau kecil */
+    }
+    /* 7. SKILL & PROJECT: Skill 2 Kolom, Project 1 Kolom */
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr); /* KUNCI: Membagi layar jadi 2 kolom sama besar */
+        gap: 15px; /* Jarak antar kotak dirapatkan agar muat di HP */
+        padding: 0 10px;
+    }
+
+    /* Penyesuaian isi kotak Skill agar tidak kepenuhan saat kotaknya sempit */
+    .skill-card {
+        padding: 20px 10px; /* Bantalan dalam kotak dikurangi */
+    }
+    
+    .skill-card i {
+        font-size: 2rem; /* Ikon dikecilkan agar proporsional */
+        margin-bottom: 10px;
+    }
+    
+    .skill-card h3 {
+        font-size: 0.9rem; /* Judul skill dikecilkan */
+        margin-bottom: 5px;
+    }
+    
+    .skill-card p {
+        font-size: 0.7rem; /* Teks deskripsi skill dikecilkan */
+        line-height: 1.4;
+    }
+
+    /* Project biarkan tetap 1 kolom penuh ke bawah agar fotonya terlihat jelas */
+    .project-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .project-card {
+        height: auto; 
+    }
+    /* 8. QUOTE: Sesuaikan ukuran kutipan pamungkas */
+    .quote-section {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        min-height: auto;
+    }
+    .quote-section h1 {
+        font-size: 2.2rem;
+        line-height: 1.4;
+    }
+
+    /* 9. FOOTER: Rapihkan ukuran */
+    .footer-name {
+        font-size: 1.8rem;
+    }
+    .footer-socials-center {
+        gap: 20px;
+    }
+    .footer-socials-center a {
+        font-size: 1.4rem;
+    }
+}
