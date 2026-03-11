@@ -545,7 +545,7 @@ nav ul li a.active {
 @media screen and (max-width: 768px) {
     
     /* 1. ANTI BOCOR: Kunci layar biar nggak bisa digeser-geser ke samping */
-    html, body {
+    body {
         overflow-x: hidden;
         width: 100%;
     }
@@ -751,4 +751,5 @@ nav ul li a.active {
     .footer-socials-center a {
         font-size: 1.4rem;
     }
+
 }
